@@ -9,8 +9,6 @@ let teamTwoGoals = document.querySelector("#teamtwo-numgoals");
 
 let resetButton = document.querySelector("#reset-button");
 let resetNumPresses = document.querySelector("#num-resets");
-let counter = document.querySelector("#counter");
-
 let isReset = false;
 //Team one points
 teamOneShootButton.addEventListener("click", function () {
@@ -25,4 +23,27 @@ teamOneShootButton.addEventListener("click", function () {
         let newGoalValue = Number(teamOneGoals.innerHTML) + 1;
         teamOneGoals.innerHTML = newGoalValue;
     }
+})
+// Team two points
+teamTwoShootButton.addEventListener("click", function () {
+    isReset = false;
+    let randomChance = Math.floor((Math.random() * 12) + 1);
+    // New Value
+    let newCounterValue = Number(teamTwoNumShots.innerHTML) + 1;
+    let luckyNumber = 1;
+    teamTwoNumShots.innerHTML = newCounterValue;
+
+    if (randomChance <= 5) {
+        let newGoalValue = Number(teamTwoGoals.innerHTML) + 1;
+        teamTwoGoals.innerHTML = newGoalValue;
+    }
+})
+
+resetButton.addEventListener("click", function () {
+    let newResetValue = Number(resetNumPresses.innerHTML) + 1;
+    resetNumPresses.innerHTML = newResetValue
+    teamOneNumShots.innerHTML = 0;
+    teamOneGoals.innerHTML = 0
+    teamTwoNumShots.innerHTML = 0
+    teamTwoGoals.innerHTML = 0
 })
